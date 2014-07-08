@@ -24,7 +24,7 @@ class GlossaryAuthenticationService {
   }
 
   def generateIdentifier(username: String) = {
-    DigestUtils.shaHex(app.hashCode + username)
+    DigestUtils.sha256Hex(app.hashCode + username)
   }
 
 }

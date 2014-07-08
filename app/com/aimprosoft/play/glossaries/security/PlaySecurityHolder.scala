@@ -10,16 +10,13 @@ trait PlaySecurityHolder {
 
   def getAuthentication(implicit request: RequestHeader): Option[Authentication] = {
     //get username from session
-    request.session.get(Security.username) match {
-      //if nothing found
-      case Some(username) =>
+    request.session.get(Security.username) flatMap {
+      username =>
         val fromCache = Cache.getAs[Authentication](username)
 
         Logger.debug(s"Getting value for $username, and it returns $fromCache")
 
         fromCache
-      //otherwise return nothing
-      case _ => None
     }
   }
 

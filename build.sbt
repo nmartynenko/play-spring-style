@@ -27,7 +27,7 @@ scalacOptions ++= Seq(
 //dependencies settings
 
 libraryDependencies ++= {
-  val springVersion = "4.0.5.RELEASE"
+  val springVersion = "4.0.6.RELEASE"
   val hibernateVersion = "4.3.5.Final"
   Seq(
     //test dependencies
@@ -41,7 +41,7 @@ libraryDependencies ++= {
     "org.springframework" % "spring-orm" % springVersion,
     "org.springframework" % "spring-webmvc" % springVersion,
     "org.springframework.security" % "spring-security-config" % "3.2.4.RELEASE",
-    "org.springframework.data" % "spring-data-jpa" % "1.6.0.RELEASE",
+    "org.springframework.data" % "spring-data-jpa" % "1.6.1.RELEASE",
     "org.springframework.scala" %% "spring-scala" % "1.0.0.RC1",
     //hibernate dependencies
     "org.hibernate" % "hibernate-core" % hibernateVersion,
@@ -49,7 +49,7 @@ libraryDependencies ++= {
     "org.hibernate" % "hibernate-entitymanager" % hibernateVersion,
     "org.hsqldb" % "hsqldb" % "2.3.2",
     //jackson
-    "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.3.3",
+    "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.4.1",
     //validation
     "net.sf.oval" % "oval" % "1.84",
     //enable JDBC module for the project

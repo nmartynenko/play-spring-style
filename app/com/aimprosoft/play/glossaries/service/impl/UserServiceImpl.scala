@@ -23,8 +23,8 @@ class UserServiceImpl extends BaseCrudServiceImpl[User, UserPersistence] with Us
     super.add(user)
   }
 
-  def getByEmail(username: String): User = {
-    persistence.findByEmail(username)
+  def getByEmail(username: String): Option[User] = {
+    Option(persistence.findByEmail(username))
   }
 
   override def countByRole(role: UserRole): Long = {

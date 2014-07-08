@@ -10,8 +10,7 @@ trait SpringSecurityViewSupport {
 
   def hasRole(roles: UserRole*)(implicit request: Request[_]): Boolean = {
     PlaySecurityHolder.getAuthentication exists {
-      auth =>
-        auth.getAuthorities exists { authority =>
+      _.getAuthorities exists { authority =>
           roles exists { role =>
             role.name == authority.getAuthority
           }

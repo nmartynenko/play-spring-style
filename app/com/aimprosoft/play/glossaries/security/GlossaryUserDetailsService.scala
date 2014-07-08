@@ -15,12 +15,8 @@ class GlossaryUserDetailsService extends UserDetailsService {
   @throws[UsernameNotFoundException]
   def loadUserByUsername(username: String): UserDetails = {
 
-    val user = userService.getByEmail(username)
-
-    user match {
-      case null =>
-        null
-      case _ =>
+    (userService.getByEmail(username) map {
+      user =>
         val userDetails = GlossaryUserDetails(
           username, user.password, getGrantedAuthorities(user)
         )
@@ -29,7 +25,8 @@ class GlossaryUserDetailsService extends UserDetailsService {
         userDetails.user = user
 
         userDetails
-    }
+    }).orNull(null)
+
   }
 
   private def getGrantedAuthorities(user: User) = {
